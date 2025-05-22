@@ -1,0 +1,227 @@
+.video-player-container {
+    background-color: #141414;
+    min-height: 100vh;
+    padding-top: 70px; /* Space for navbar */
+    color: #e5e5e5;
+  }
+  
+  .video-main-section {
+    position: relative;
+    width: 100%;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s;
+  }
+  
+  .back-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .video-player-wrapper {
+    width: 100%;
+    background-color: black;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .main-video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .video-info-container {
+    padding: 30px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .video-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .video-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .video-actions {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .action-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    color: #e5e5e5;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .action-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .video-details {
+    padding: 20px 0;
+    border-top: 1px solid #333;
+  }
+  
+  .upload-info {
+    margin-bottom: 15px;
+    color: #999;
+    font-size: 0.9rem;
+  }
+  
+  .video-description {
+    line-height: 1.6;
+    color: #e5e5e5;
+  }
+  
+  /* Related videos section */
+  .related-videos-section {
+    padding: 30px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .related-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .related-videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+  
+  .related-video-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .related-video-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .related-thumbnail-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+  }
+  
+  .related-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .related-play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .related-video-card:hover .related-play-overlay {
+    opacity: 1;
+  }
+  
+  .play-icon {
+    color: white;
+    font-size: 30px;
+  }
+  
+  .related-video-info {
+    padding: 10px;
+    background-color: #1f1f1f;
+  }
+  
+  .related-video-title {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .related-video-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #999;
+    font-size: 0.8rem;
+  }
+  
+  .related-video-likes {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  /* Loading spinner */
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #e50914;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 20px;
+  }
+  
+  @key

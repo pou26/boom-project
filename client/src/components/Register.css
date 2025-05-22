@@ -1,0 +1,291 @@
+/* Netflix Registration Page Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  .register-container {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .register-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%),
+      url('/api/placeholder/1920/1080');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+  
+  .netflix-logo {
+    position: absolute;
+    top: 24px;
+    left: 32px;
+    z-index: 20;
+    color: #e50914;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .form-container {
+    position: relative;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 64px;
+    border-radius: 8px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 450px;
+    margin: 0 16px;
+  }
+  
+  .form-title {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+  
+  .form-group {
+    margin-bottom: 16px;
+    position: relative;
+  }
+  
+  .form-input {
+    width: 100%;
+    height: 56px;
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 16px 16px 4px 16px;
+    color: #fff;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #e87c03;
+    box-shadow: 0 0 0 2px rgba(232, 124, 3, 0.5);
+  }
+  
+  .form-input::placeholder {
+    color: #8c8c8c;
+  }
+  
+  .password-input {
+    padding-right: 64px;
+  }
+  
+  .password-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #8c8c8c;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .password-toggle:hover {
+    color: #fff;
+  }
+  
+  .sign-up-btn {
+    width: 100%;
+    height: 48px;
+    background: #e50914;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 32px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .sign-up-btn:hover {
+    background: #f40612;
+  }
+  
+  .sign-up-btn:disabled {
+    background: #555;
+    cursor: not-allowed;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+  }
+  
+  .checkbox {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    accent-color: #e50914;
+  }
+  
+  .checkbox-label {
+    color: #b3b3b3;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .sign-in-link {
+    margin-top: 32px;
+    color: #8c8c8c;
+    font-size: 16px;
+  }
+  
+  .sign-in-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 16px;
+  }
+  
+  .sign-in-btn:hover {
+    text-decoration: none;
+  }
+  
+  .recaptcha-notice {
+    margin-top: 16px;
+    color: #8c8c8c;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .learn-more {
+    color: #0071eb;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .learn-more:hover {
+    text-decoration: none;
+  }
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 32px;
+    z-index: 10;
+  }
+  
+  .footer-content {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+  
+  .footer-title {
+    color: #8c8c8c;
+    margin-bottom: 16px;
+  }
+  
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    font-size: 14px;
+  }
+  
+  .footer-link {
+    color: #8c8c8c;
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+  
+  .error-message {
+    color: #e87c03;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 32px 24px;
+      margin: 0 8px;
+    }
+    
+    .netflix-logo {
+      font-size: 24px;
+      left: 16px;
+      top: 16px;
+    }
+    
+    .form-title {
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+    
+    .footer {
+      padding: 16px;
+    }
+    
+    .footer-links {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-container {
+      padding: 24px 16px;
+    }
+    
+    .form-title {
+      font-size: 24px;
+    }
+    
+    .form-input {
+      height: 50px;
+      font-size: 14px;
+    }
+    
+    .sign-up-btn {
+      height: 44px;
+      font-size: 14px;
+    }
+  }

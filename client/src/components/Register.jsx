@@ -16,7 +16,7 @@ function Register() {
     setError('');
     setIsLoading(true);
 
-    // Basic validation
+  
     if (!email || !password) {
       setError('Please fill in all fields');
       setIsLoading(false);
@@ -45,8 +45,6 @@ function Register() {
       if (response.ok) {
         const data = await response.json();
         console.log('Registration successful:', data);
-        // Handle successful registration
-        // You can add your navigation logic here
         alert('Registration successful! Please sign in.');
       } else {
         const errorData = await response.json();
@@ -66,7 +64,7 @@ function Register() {
 
   return (
     <div className="register-container">
-      {/* Background */}
+
       <div className="register-background"></div>
 
       {/* Registration Form */}

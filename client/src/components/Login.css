@@ -50,7 +50,7 @@
     letter-spacing: 1px;
   }
   
-  /* Form Container */
+
   .login-form-container {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 60px 68px 40px;
@@ -190,7 +190,7 @@
     }
   }
   
-  /* Login Options */
+  /* Login */
   .login-options {
     display: flex;
     justify-content: space-between;
@@ -227,8 +227,7 @@
   .help-link:hover {
     text-decoration: underline;
   }
-  
-  /* Sign Up Section */
+
   .signup-section {
     margin-bottom: 32px;
   }
@@ -261,7 +260,7 @@
     line-height: 1.4;
   }
   
-  /* Responsive Design */
+
   @media (max-width: 740px) {
     .login-form-container {
       padding: 48px 32px;
@@ -302,7 +301,7 @@
     }
   }
   
-  /* Focus States for Accessibility */
+ 
   .form-input:focus,
   .login-button:focus,
   .password-toggle:focus,
@@ -312,7 +311,7 @@
     outline-offset: 2px;
   }
   
-  /* High Contrast Mode Support */
+
   @media (prefers-contrast: high) {
     .form-input {
       border: 1px solid #666;

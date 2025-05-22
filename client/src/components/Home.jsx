@@ -28,7 +28,7 @@ function Home() {
       .then(() => {
         setVideos(prev => prev.map(v => v._id === id ? { ...v, likes: v.likes + 1 } : v));
         
-        // Update hero video if it's the one being liked
+        
         if (heroVideo && heroVideo._id === id) {
           setHeroVideo(prev => ({ ...prev, likes: prev.likes + 1 }));
         }

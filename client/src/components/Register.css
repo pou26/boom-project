@@ -1,4 +1,4 @@
-/* Netflix Registration Page Styles */
+
 
 * {
     margin: 0;
@@ -242,7 +242,7 @@
     pointer-events: none;
   }
   
-  /* Mobile Responsive Styles */
+  /* Mobile Responsive */
   @media (max-width: 768px) {
     .form-container {
       padding: 32px 24px;

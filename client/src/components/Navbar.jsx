@@ -7,7 +7,6 @@ function Navbar() {
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem('token') !== null;
 
-  // Change navbar background on scroll
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);

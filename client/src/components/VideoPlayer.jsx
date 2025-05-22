@@ -28,7 +28,7 @@ function VideoPlayer() {
     // Fetch related videos
     axios.get('http://localhost:5000/api/videos')
       .then(res => {
-        // Filter out the current video and limit to 6 videos
+       
         const filtered = res.data.filter(v => v._id !== id).slice(0, 6);
         setRelatedVideos(filtered);
       })

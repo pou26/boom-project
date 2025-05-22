@@ -13,14 +13,14 @@ import VideoPlayer from './components/VideoPlayer.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />, // Wraps all children with Navbar + Outlet
+    element: <App />, 
     children: [
       { path: '', element: <Home /> },
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },
       { path: 'upload', element: <Upload /> },
-      { path: 'videos/video/:id', element: <VideoPlayer /> }, // Main video player route
-      // Remove the duplicate videoplayer route since we're using /video/:id
+      { path: 'videos/video/:id', element: <VideoPlayer /> }, 
+      
     ]
   }
 ]);

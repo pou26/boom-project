@@ -26,7 +26,7 @@ function Login() {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('userId', res.data.userId);
       
-      // Redirect to home page
+     
       navigate('/');
     } catch (err) {
       console.error('Login failed:', err);
@@ -113,7 +113,7 @@ function Login() {
                 </button>
               </form>
 
-              {/* Additional Options */}
+          
               <div className="login-options">
                 <div className="remember-me">
                   <input type="checkbox" id="remember" />
@@ -124,7 +124,7 @@ function Login() {
                 </Link>
               </div>
 
-              {/* Sign Up Link */}
+              {/* Sign Up */}
               <div className="signup-section">
                 <p className="signup-text">
                   New to BoomFlix?{' '}
@@ -134,7 +134,7 @@ function Login() {
                 </p>
               </div>
 
-              {/* Additional Info */}
+            
               <div className="login-footer">
                 <p className="footer-text">
                   This page is protected by Google reCAPTCHA to ensure you're not a bot.

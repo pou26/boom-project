@@ -1,7 +1,7 @@
 .video-player-container {
     background-color: #141414;
     min-height: 100vh;
-    padding-top: 70px; /* Space for navbar */
+    padding-top: 70px; 
     color: #e5e5e5;
   }
   
@@ -109,7 +109,7 @@
     color: #e5e5e5;
   }
   
-  /* Related videos section */
+
   .related-videos-section {
     padding: 30px 5%;
     max-width: 1200px;
@@ -205,7 +205,7 @@
     gap: 4px;
   }
   
-  /* Loading spinner */
+
   .loading-container {
     display: flex;
     flex-direction: column;

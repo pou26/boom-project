@@ -13,7 +13,7 @@ dist-ssr
 *.local
 /ffmpeg-7.1.1
 
-# Editor directories and files
+
 .vscode/*
 !.vscode/extensions.json
 .idea

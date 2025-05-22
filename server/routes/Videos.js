@@ -7,14 +7,13 @@ const path = require('path');
 const Video = require('../models/Video');
 const router = express.Router();
 
-// Set ffmpeg path explicitly
+
 const ffmpegPath = require('ffmpeg-static');
 if (ffmpegPath) {
   console.log(`🔍 Using ffmpeg from ffmpeg-static: ${ffmpegPath}`);
   ffmpeg.setFfmpegPath(ffmpegPath);
 } else {
-  // If ffmpeg-static doesn't provide a path, try to use the system one
-  // On Windows, the command is typically 'where ffmpeg'
+
   const { execSync } = require('child_process');
   try {
     const ffmpegSystemPath = execSync('where ffmpeg').toString().trim().split('\n')[0];
@@ -27,7 +26,7 @@ if (ffmpegPath) {
   }
 }
 
-// Ensure directories exist
+
 const ensureDirectoryExists = (dirPath) => {
   if (!fs.existsSync(dirPath)) {
     console.log(`📁 Creating directory: ${dirPath}`);
@@ -55,16 +54,16 @@ const auth = (req, res, next) => {
   }
 };
 
-// 📸 Thumbnail Generator Utility
+
 const generateThumbnail = (videoPath, thumbnailName, cb) => {
   const thumbnailFullPath = path.join('uploads/thumbnails', thumbnailName);
   
   console.log('📹 Starting thumbnail generation for:', videoPath);
   
   try {
-    // Check if video file exists
+
     if (!fs.existsSync(videoPath)) {
-      console.error(`❌ Video file does not exist at: ${videoPath}`);
+      console.error(` Video file does not exist at: ${videoPath}`);
       return cb(new Error(`Video file not found: ${videoPath}`));
     }
     
@@ -73,11 +72,11 @@ const generateThumbnail = (videoPath, thumbnailName, cb) => {
         console.log('🛠 FFmpeg command:', commandLine);
       })
       .on('end', () => {
-        console.log('✅ Thumbnail generated at:', thumbnailFullPath);
+        console.log(' Thumbnail generated at:', thumbnailFullPath);
         cb(null, thumbnailFullPath);
       })
       .on('error', err => {
-        console.error('❌ FFmpeg error:', err.message || err);
+        console.error(' FFmpeg error:', err.message || err);
         cb(err);
       })
       .screenshots({
@@ -87,21 +86,21 @@ const generateThumbnail = (videoPath, thumbnailName, cb) => {
         size: '320x240'
       });
   } catch (err) {
-    console.error('❌ Exception when initializing ffmpeg:', err);
+    console.error(' Exception when initializing ffmpeg:', err);
     cb(err);
   }
 };
 
-// 📥 Video Upload API
+
 router.post('/upload', auth, upload.single('video'), async (req, res) => {
   try {
-    // Check if file was uploaded
+
     if (!req.file) {
-      console.error('❌ No file was uploaded');
+      console.error('No file was uploaded');
       return res.status(400).send('No file was uploaded');
     }
 
-    // Log file details
+
     console.log('📄 File details:', {
       filename: req.file.filename,
       originalname: req.file.originalname,
@@ -112,7 +111,7 @@ router.post('/upload', auth, upload.single('video'), async (req, res) => {
 
     const { title } = req.body;
     if (!title) {
-      console.error('❌ No title provided');
+      console.error(' No title provided');
       return res.status(400).send('Title is required');
     }
 
@@ -122,10 +121,10 @@ router.post('/upload', auth, upload.single('video'), async (req, res) => {
 
     console.log('📹 Generating thumbnail for:', videoPath);
     
-    // Use the properly defined generateThumbnail function
+
     generateThumbnail(videoPath, thumbnailName, async (err, thumbnailPath) => {
       if (err) {
-        console.error('❌ Thumbnail generation failed:', err);
+        console.error('Thumbnail generation failed:', err);
         return res.status(500).send(`Thumbnail generation failed: ${err.message || 'Unknown error'}`);
       }
 
@@ -142,12 +141,12 @@ router.post('/upload', auth, upload.single('video'), async (req, res) => {
         console.log('✅ Video uploaded with thumbnail:', thumbnailUrlPath);
         res.send('Video uploaded with thumbnail');
       } catch (dbErr) {
-        console.error('❌ Database save failed:', dbErr);
+        console.error(' Database save failed:', dbErr);
         res.status(500).send(`Database error: ${dbErr.message}`);
       }
     });
   } catch (err) {
-    console.error('❌ Upload failed:', err);
+    console.error('Upload failed:', err);
     res.status(500).send(`Video upload failed: ${err.message || 'Unknown error'}`);
   }
 });
@@ -163,25 +162,25 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Route to get a video by specific ID
+
 router.get('/video/:id', async (req, res) => {
   try {
     const videoId = req.params.id;
 
-    // Find the video by ID
+    
     const video = await Video.findById(videoId);
 
-    // If no video is found
+
     if (!video) {
       return res.status(404).json({ message: 'Video not found' });
     }
 
-    // Return the found video
+
     res.json(video);
   } catch (err) {
-    console.error('❌ Error fetching video by ID:', err);
+    console.error(' Error fetching video by ID:', err);
 
-    // Handle invalid ObjectId error
+
     if (err.kind === 'ObjectId') {
       return res.status(400).json({ message: 'Invalid video ID format' });
     }
